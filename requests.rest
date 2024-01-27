@@ -1,0 +1,45 @@
+// Delete phonebook entry
+DELETE http://localhost:3001/api/persons/1
+
+###
+// Create phonebook entry 
+POST http://localhost:3001/api/persons HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Bill",
+    "number": "123-456-789"
+}
+
+###
+// Name or number is missing
+POST http://localhost:3001/api/persons HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Bill"
+}
+
+###
+// Name or number is missing
+POST http://localhost:3001/api/persons HTTP/1.1
+content-type: application/json
+
+{
+    "number": "123-456-789"
+}
+
+###
+// Name already exists in phonebook
+POST http://localhost:3001/api/persons HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Dan Abramov",
+    "number": "123-456-789"
+}
+
+###
+// Content missing
+POST http://localhost:3001/api/persons HTTP/1.1
+content-type: text/plain
